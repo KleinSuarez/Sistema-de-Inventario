@@ -1,0 +1,36 @@
+.header {
+  background-color: rgba(191, 201, 202, 1);
+  border-radius: 8px;
+  width: 98%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10%;
+  display: flex;
+}
+
+.nav_link {
+  display: flex;
+  list-style: none;
+  margin-right: auto;
+}
+
+.nav_link a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav_link a:hover {
+  color: grey;
+  font-size: 17px;
+}
+
+.logo {
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav_link li {
+  display: inline-block;
+  padding: 0px 10px;
+}
