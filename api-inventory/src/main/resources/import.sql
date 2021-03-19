@@ -1,0 +1,11 @@
+INSERT INTO product_type (id_product_type, product_type_name) VALUES (0, 'Bienes de consumo')
+INSERT INTO product_type (id_product_type, product_type_name) VALUES (1, 'Servicios')
+INSERT INTO product_type (id_product_type, product_type_name) VALUES (2, 'Bienes de uso común')
+INSERT INTO product_type (id_product_type, product_type_name) VALUES (3, 'Bienes de emergencia')
+INSERT INTO product_type (id_product_type, product_type_name) VALUES (4, 'Bienes durables')
+INSERT INTO product_type (id_product_type, product_type_name) VALUES (5, 'Bienes de especialidad')
+INSERT INTO product_type (id_product_type, product_type_name) VALUES (6, 'Otros')
+
+INSERT INTO product (id_product,reference, product_name, id_product_type, amount) VALUES (0, 'REF-001', 'Portatil', 4, 55)
+INSERT INTO product (id_product,reference, product_name, id_product_type, amount) VALUES (1, 'REF-002', 'Alcohol', 3, 100)
+INSERT INTO product (id_product,reference, product_name, id_product_type, amount) VALUES (2, 'REF-003', 'Libro', 0, 200)
