@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import co.software.apiinventory.model.Product;
 import co.software.apiinventory.service.product.consultation.ConsultationProductService;
 
-@RestController
-@RequestMapping("/v1")
+//@RestController
+//@RequestMapping("/v1")
 public class ControllerConsultationProduct {
 
 	@Autowired

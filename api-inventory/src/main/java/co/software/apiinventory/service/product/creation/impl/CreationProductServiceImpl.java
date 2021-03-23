@@ -7,7 +7,7 @@ import co.software.apiinventory.model.Product;
 import co.software.apiinventory.repository.product.ProductRepository;
 import co.software.apiinventory.service.product.creation.CreationProductService;
 
-@Service
+//@Service
 public class CreationProductServiceImpl implements CreationProductService {
 
 	@Autowired

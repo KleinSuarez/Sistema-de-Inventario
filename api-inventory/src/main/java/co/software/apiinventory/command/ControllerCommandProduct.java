@@ -16,31 +16,31 @@ import co.software.apiinventory.service.product.creation.CreationProductService;
 import co.software.apiinventory.service.product.delete.DeleteProductService;
 import co.software.apiinventory.service.product.update.UpdateProductService;
 
-@RestController
-@RequestMapping("/v1/product")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+//@RestController
+//@RequestMapping("/v1/product")
+//@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,	RequestMethod.DELETE })
 public class ControllerCommandProduct {
-	
+
 	@Autowired
 	private CreationProductService creationProductService;
 	@Autowired
 	private UpdateProductService updateProductService;
 	@Autowired
 	private DeleteProductService deleteProductService;
-	
+
 	@PostMapping("/insert")
 	public void insert(@RequestBody Product product) {
 		creationProductService.insert(product);
 	}
-	
+
 	@PutMapping("/update/{idProduct}")
 	public void update(@PathVariable("idProduct") Integer idProduct, @RequestBody Product product) {
 		updateProductService.updated(idProduct, product);
 	}
-	
+
 	@DeleteMapping("deleted/{idProduct}")
 	public void deleted(@PathVariable("idProduct") Integer idProduct) {
 		deleteProductService.deleted(idProduct);
 	}
-	
+
 }

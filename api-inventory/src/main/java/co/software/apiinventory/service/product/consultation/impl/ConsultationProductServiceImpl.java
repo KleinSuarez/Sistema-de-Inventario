@@ -1,5 +1,7 @@
 package co.software.apiinventory.service.product.consultation.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +16,8 @@ public class ConsultationProductServiceImpl implements ConsultationProductServic
 	private ProductRepository productRepository;
 	
 	@Override
-	public Iterable<Product> findAll() {
-		return productRepository.findAll();
+	public List<Product> findAll() {
+		return (List<Product>) productRepository.findAll();
 	}
 	
 	@Override
