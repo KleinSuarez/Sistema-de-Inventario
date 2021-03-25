@@ -32,6 +32,6 @@ public class Product {
 	@JoinColumn(name = "id_product_type")
 	private ProductType productType;
 	
-	@Column(name = "amount")
-	private int amount;
+	@Column(name = "stock")
+	private int stock;
 }

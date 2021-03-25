@@ -6,9 +6,9 @@ INSERT INTO product_type (id_product_type, product_type_name) VALUES (4, 'Bienes
 INSERT INTO product_type (id_product_type, product_type_name) VALUES (5, 'Bienes de especialidad')
 INSERT INTO product_type (id_product_type, product_type_name) VALUES (6, 'Otros')
 
-INSERT INTO product (id_product,reference, product_name, id_product_type, amount) VALUES (0, 'REF-001', 'Portatil', 4, 55)
-INSERT INTO product (id_product,reference, product_name, id_product_type, amount) VALUES (1, 'REF-002', 'Alcohol', 3, 100)
-INSERT INTO product (id_product,reference, product_name, id_product_type, amount) VALUES (2, 'REF-003', 'Libro', 0, 200)
+INSERT INTO product (id_product,reference, product_name, id_product_type, stock) VALUES (0, 'REF-001', 'Portatil', 4, 55)
+INSERT INTO product (id_product,reference, product_name, id_product_type, stock) VALUES (1, 'REF-002', 'Alcohol', 3, 100)
+INSERT INTO product (id_product,reference, product_name, id_product_type, stock) VALUES (2, 'REF-003', 'Libro', 0, 200)
 
 INSERT INTO transaction_product (id_transaction,id_product, entry, output, modification_date) VALUES (0, 2, 200, 0, '12-01-2021')
 INSERT INTO transaction_product (id_transaction,id_product, entry, output, modification_date) VALUES (2, 0, 55, 0, '22-03-2021')

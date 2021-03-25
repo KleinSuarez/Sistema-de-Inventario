@@ -29,14 +29,14 @@ public class UpdateProductServiceImpl implements UpdateProductService {
 			
 			String reference = (product.getReference() == null)? productTemp.getReference(): product.getReference();
 			String productName = (product.getProductName() == null)? productTemp.getProductName(): product.getProductName();
-			int amount = (product.getAmount()==0)? productTemp.getAmount(): product.getAmount();
+			int stock = (product.getStock()==0)? productTemp.getStock(): product.getStock();
 			
 			product.setProductType(new ProductType(product.getProductType().getIdProductType().equals(null)? productTemp.getProductType().getIdProductType(): product.getProductType().getIdProductType() , ""));
 
 			
 			product.setReference(reference);
 			product.setProductName(productName);
-			product.setAmount(amount);
+			product.setStock(stock);
 			productRepository.save(product);
 			
 		}else {

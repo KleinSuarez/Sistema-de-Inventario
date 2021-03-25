@@ -24,7 +24,7 @@ public class InventoryConsultationServiceImpl implements InventoryConsultationSe
 		ArrayList<Product> products = (ArrayList<Product>) inventoryRepository.findAll();
 		Collections.sort(products, new Comparator<Product>() {
 			public int compare (Product product1, Product product2) {
-				return Integer.valueOf(product2.getAmount()).compareTo(product1.getAmount());
+				return Integer.valueOf(product2.getStock()).compareTo(product1.getStock());
 			}
 		});
 		return 	products;
