@@ -1,10 +1,13 @@
 <header class="header">
+	<a [routerLink]="['home']">INVENTORY</a>
 	<nav>
 		<ul class="nav_link">
-			<li><a [routerLink]="['home']">Principal</a></li>
-			<li><a [routerLink]="['list']">List</a></li>
-			<li><a [routerLink]="['registrar']">Crear</a></li>
+			<li>Admin</li>
+			<li class="logout">
+				<a>
+					<img src="../../../assets/logout.svg" alt="logout">
+				</a>
+			</li>
 		</ul>
 	</nav>
-	<img src="../../../assets/Sistema Inventario logo v0.png" alt="logo" class="logo" href="#">
 </header>

@@ -80,18 +80,27 @@
 }
 
 /* Modal */
-.more-options {
-  width: 30px;
-  height: 20px;
+
+.img-more {
+  width: 20px;
+  height: 15px;
 }
 
-.more-options:hover{
-  width: 35px;
-  height: 20px;
+.img-more:hover {
+  width: 21px;
+  height: 16px;
   cursor: pointer;
 }
 
-.modal:target {
+.more-options:hover{
+  cursor: pointer;
+}
+
+#show-modal {
+  visibility: hidden;
+}
+
+#show-modal:checked ~ .modal {
   visibility: visible;
 }
 
@@ -143,10 +152,38 @@
 
 .button {
   width: 60px;
-  height: 20px;
+  height: 22px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 3px 0px 3px;
+}
+.save{
+  background-color: rgba(60, 180, 114, 1);
+}
+.delete {
+  background-color:rgba(255, 99, 71, 1);
+} 
+
+.update {
+  background-color: rgba(84, 111, 220, 1);
+} 
+
+.closed{
+  background-color:rgba(255, 99, 71, 1);
 }
 
 .button a {
-  font-size: 13px;
+  color: rgba(255, 255, 255,1);
+  font-size: 12px;
   text-decoration: none;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.input {
+  background-color: (255, 255, 255,.8);
+  border-radius: 7px;
+  text-align: center;
 }
