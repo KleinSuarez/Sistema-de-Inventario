@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class="info">
+    <h3>Welcome to the inventory management system</h3>
+    <p>
+      With the inventory management system you can control all the products that come in and go out, additionally you
+      can add new products and modify existing ones.
+    </p>
+  </div>
+  <div class="menu">
+    <div class="menu-action">
+      <a [routerLink]="['/list-products']">
+        <h3>List Products</h3>
+        <div class="circle">
+          <img src="../../../assets/list-products.svg" alt="List Products">
+        </div>
+      </a>
+    </div>
+    <div class="menu-action">
+      <a [routerLink]="['/add-product']">
+        <h3>Add New Product</h3>
+        <div class="circle">
+          <img src="../../../assets/add-new-product.svg" alt="Add New Product">
+        </div>
+      </a>
+    </div>
+    <div class="menu-action">
+      <a [routerLink]="['/list-product-type']">
+        <h3>List Product Type</h3>
+        <div class="circle">
+          <img src="../../../assets/list-product-type.svg" alt="List Product Type">
+        </div>
+      </a>
+    </div>
+    <div class="menu-action">
+      <a [routerLink]="['/about']">
+        <h3>About</h3>
+        <div class="circle">
+          <img src="../../../assets/about.svg" alt="About">
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

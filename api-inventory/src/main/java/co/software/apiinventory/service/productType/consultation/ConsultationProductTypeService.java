@@ -5,5 +5,6 @@ import co.software.apiinventory.model.ProductType;
 public interface ConsultationProductTypeService {
 
 	Iterable<ProductType> findAll();
+	ProductType findById(Integer idProductType);
 
 }

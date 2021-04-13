@@ -1,0 +1,73 @@
+.form {
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 7px;
+  text-align: left;
+}
+
+.input-field input {
+  background-color: rgba(225, 226, 225, 1);
+  border-radius: 2px;
+  border: 0;
+}
+
+button {
+  border: hidden;
+  background-color: rgba(225, 226, 225, 0);
+  cursor: pointer;
+}
+
+.button-menu {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+  margin: 10px 7px 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  width: 80px;
+  border-radius: 8px;
+  margin: 10px 7px 0px;
+  cursor: pointer;
+}
+
+.saved {
+  background-color: rgba(46, 138, 86, 1);
+} 
+
+.saved:hover{
+  background-color:rgba(46, 138, 86, .7);
+}
+
+.cancel {
+  background-color: tomato;
+}
+
+.options {
+  color: rgba(0,0,0,0.7);
+}
+
+select {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: rgba(0,0,0,0.7);
+}
+
+.alert {
+  background-color: rgba(255, 99, 71, 0.3);
+  color: rgba(73, 7, 7, 0.7);
+}

@@ -1,0 +1,25 @@
+.wrapper {
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color:rgba(174, 174, 174, 1);
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.info {
+  flex-direction: column;
+}
+
+.info p {
+  margin-top: 5px;
+  text-align: justify;
+  line-height: 1.2;
+  color:rgba(27, 27, 27, 0.7);
+} 
+
+.info h3 {
+  color:rgba(27, 27, 27, 1);
+}

@@ -1,0 +1,44 @@
+<form (ngSubmit)='insert()' #productForm="ngForm" class="form">
+  <h3>Product Information</h3>
+  <div class="input-field">
+    <div class="alert" *ngIf="reference.invalid && (reference.dirty || reference.touched)">
+      <div *ngIf="reference?.errors.required">The reference fill is mandatory</div>
+      <div *ngIf="reference?.errors.minlength">min length 7</div>
+    </div>
+    <input placeholder="REF-000" type="text" name="reference" id="reference" [(ngModel)]='product.reference' #reference="ngModel" required="true" minlength=7 autocomplete="off">
+    <label for="reference">Reference:</label>
+  </div>
+  <div class="input-field">
+    <div class="alert" *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+      <div *ngIf="productName?.errors.required">The product name fill is mandatory</div>
+      <div *ngIf="productName?.errors.minlength">min length 3</div>
+    </div>
+    <input placeholder="Product Name" type="text" name="productName" id="productName" [(ngModel)]='product.productName' #productName="ngModel" required minlength=3 autocomplete="off">
+    <label for="productName">Product Name:</label>
+  </div>
+  <div class="input-field">
+    <select class="dropdawn-options" name="productType" id="productType" [(ngModel)]='product.productType' #productType="ngModel"
+      required>
+      <option *ngFor='let productType of productTypeList' [ngValue]='productType'>
+       {{productType.productTypeName}}</option>
+    </select>
+    <label for="product-type">Product Type:</label>
+
+  </div>
+  <div class="input-field">
+    <div class="alert" *ngIf="stock.invalid && (stock.dirty || stock.touched)">
+      <div *ngIf="stock?.errors.required">The reference fill is mandatory</div>
+      <div *ngIf="stock?.errors.minlength">min length 1</div>
+    </div>
+    <input placeholder="000" type="text" name="stock" id="stock" [(ngModel)]='product.stock' #stock="ngModel" required minlength=1 autocomplete="off">
+    <label for="stock">Stock:</label>
+  </div>
+  <div class="button-menu">
+    <div class="button saved">
+      <button type="submit" [disabled]='!productForm.form.valid'>Saved</button>
+    </div>
+    <div class="button cancel">
+      <button>Cancel</button>
+    </div>
+  </div>
+</form>

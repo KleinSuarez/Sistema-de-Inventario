@@ -18,4 +18,9 @@ public class ConsultationProductTypeServiceImpl implements ConsultationProductTy
 		return productTypeRepository.findAll();
 	}
 
+	@Override
+	public ProductType findById(Integer idProductType) {
+		return productTypeRepository.findById(idProductType).orElse(null);
+	}
+
 }
