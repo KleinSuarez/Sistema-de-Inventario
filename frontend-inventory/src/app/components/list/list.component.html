@@ -7,7 +7,7 @@
       <div class="cell">Stock</div>
       <div class="cell"></div>
     </div>
-    <div class="row" *ngFor="let product of productList">
+    <div class="row" *ngFor="let product of productList" [ngStyle]="{'background-color': (product.stock === 0) ? 'rgba(153, 0, 0, 0.7)' : ''}">
       <div class="cell">{{product.reference}}</div>
       <div class="cell">{{product.productName}}</div>
       <div class="cell">{{product.productType.productTypeName}}</div>
