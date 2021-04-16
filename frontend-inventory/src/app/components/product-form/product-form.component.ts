@@ -42,12 +42,20 @@ export class ProductFormComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        this.setupCommand();
-        this.saveProduct();
+        this.refValidator();
       } else if (result.isDenied) {
         Swal.fire('Product not saved', '', 'info');
       }
     });
+  }
+
+  refValidator(): void {
+   if(false){
+
+   }else{
+    this.setupCommand();
+    this.saveProduct();
+   }
   }
 
   saveProduct(): void {
