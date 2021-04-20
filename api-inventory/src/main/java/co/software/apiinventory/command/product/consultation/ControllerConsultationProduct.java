@@ -25,4 +25,10 @@ public class ControllerConsultationProduct {
 	Product findById(@PathVariable("idProduct") Integer idProduct) {
 		return productConsultationService.findById(idProduct);
 	}
+
+	@GetMapping("product-by-reference/{reference}")
+	Product findByReference(@PathVariable ("reference") String reference){
+		return productConsultationService.findByReference(reference);
+	}
+
 }

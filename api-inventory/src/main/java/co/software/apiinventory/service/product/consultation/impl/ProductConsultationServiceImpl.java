@@ -34,7 +34,7 @@ public class ProductConsultationServiceImpl implements ProductConsultationServic
 	public Product findByReference(String reference) {
 		Product product = new Product();
 		for (Product productIterator: listAllProducts()) {
-			if(productIterator.getReference() == reference) {
+			if(productIterator.getReference().equals(reference)) {
 				product = productIterator;
 			}
 		}
