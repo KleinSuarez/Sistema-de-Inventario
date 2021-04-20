@@ -19,8 +19,8 @@ export class ProductFormComponent implements OnInit {
   commandProduct: ProductCommand;
 
   constructor(private productTypeServices: ProductTypeService,
-              private productService: ProductService,
-              private router: Router) { }
+    private productService: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
     // tslint:disable-next-line: deprecation
@@ -42,6 +42,7 @@ export class ProductFormComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
+        this.setupCommand();
         this.refValidator();
       } else if (result.isDenied) {
         Swal.fire('Product not saved', '', 'info');
@@ -50,12 +51,11 @@ export class ProductFormComponent implements OnInit {
   }
 
   refValidator(): void {
-   if(false){
-
-   }else{
-    this.setupCommand();
-    this.saveProduct();
-   }
+    if (this.productService.getProductByReference(this.commandProduct.reference)) {
+      Swal.fire('product reference already exists', '', 'info');
+    } else {
+      this.saveProduct();
+    }
   }
 
   saveProduct(): void {
