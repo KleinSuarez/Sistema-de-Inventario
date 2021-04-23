@@ -43,10 +43,10 @@
             <h3>Advanced Options</h3>
             <div class="advanced-options">
               <div class="button update">
-                <a [routerLink]="['/edit-product']">edit</a>
+                <a (click)="productEdit(product)">edit</a>
               </div>
               <div class="button delete">
-                <a href="">delete</a>
+                <a (click)="deleteProduct(product)" >delete</a>
               </div>
               <div class="button closed">
                 <a href="/list-products">close</a>

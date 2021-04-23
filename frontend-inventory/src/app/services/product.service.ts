@@ -21,7 +21,15 @@ export class ProductService {
     return this.http.get<Product>(this.baseEndPoint.concat('product-by-reference/' + reference));
   }
 
+  getProductById(idProduct: number): Observable<Product> {
+    return this.http.get<Product>(this.baseEndPoint.concat('/product-by-id/' + idProduct));
+  }
+
   insert(commandProduct: ProductCommand): Observable<Product> {
     return this.http.post<Product>(this.endPoint2, commandProduct, { headers: { 'content-type': 'application/json' } });
+  }
+
+  delete(idProduct: number): Observable<Product> {
+    return this.http.delete<Product>(this.baseEndPoint.concat(`/product/${idProduct}/deleted`));
   }
 }

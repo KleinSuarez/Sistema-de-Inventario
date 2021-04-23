@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/model/product/product';
+import { ProductTypeService } from 'src/app/services/product-type.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-update-product',
@@ -7,7 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateProductComponent implements OnInit {
 
-  constructor() { }
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }

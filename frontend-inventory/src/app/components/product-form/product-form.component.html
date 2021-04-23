@@ -19,7 +19,7 @@
   <div class="input-field">
     <select class="dropdawn-options" name="productType" id="productType" [(ngModel)]='product.productType' #productType="ngModel"
       required>
-      <option *ngFor='let productType of productTypeList' [ngValue]='productType'>
+      <option *ngFor='let productType of productTypeList' [ngValue]='productType' [selected]="productType == product.productType">
        {{productType.productTypeName}}</option>
     </select>
     <label for="product-type">Product Type:</label>

@@ -21,7 +21,7 @@ public class ControllerConsultationProduct {
 		return productConsultationService.listAllProducts();
 	}
 
-	@GetMapping("/product-by-id/{idProduct}")
+	@GetMapping("product-by-id/{idProduct}")
 	Product findById(@PathVariable("idProduct") Integer idProduct) {
 		return productConsultationService.findById(idProduct);
 	}

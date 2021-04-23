@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductCommand } from 'src/app/command/product-command';
 import { Product } from 'src/app/model/product/product';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -17,10 +17,16 @@ export class ProductFormComponent implements OnInit {
   productTypeList: ProductType[] = [];
   product = new Product();
   commandProduct: ProductCommand;
+  idProduct: number;
 
   constructor(private productTypeServices: ProductTypeService,
     private productService: ProductService,
-    private router: Router) { }
+    private router: Router, private route: ActivatedRoute) { 
+      this.idProduct = + this.route.snapshot.paramMap.get('idProduct');
+      if (this.idProduct !== 0) {
+        this.productByID();
+      }
+    }
 
   ngOnInit(): void {
     // tslint:disable-next-line: deprecation
@@ -51,6 +57,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   refValidator(): void {
+    console.log(this.productService.getProductByReference(this.commandProduct.reference))
     if (this.productService.getProductByReference(this.commandProduct.reference)) {
       Swal.fire('product reference already exists', '', 'info');
     } else {
@@ -69,13 +76,20 @@ export class ProductFormComponent implements OnInit {
   }
 
   setupCommand(): void {
-    console.log(this.product);
     this.commandProduct = new ProductCommand();
     this.commandProduct.idProduct = 0;
     this.commandProduct.reference = this.product.reference;
     this.commandProduct.productName = this.product.productName;
     this.commandProduct.stock = this.product.stock;
     this.commandProduct.idProductType = this.product.productType.idProductType;
+  }
+
+  productByID(): void {
+    this.productService.getProductById(this.idProduct).subscribe(
+      res => {
+        this.product = res;
+      }
+    );
   }
 }
 
