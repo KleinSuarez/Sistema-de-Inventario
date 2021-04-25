@@ -12,10 +12,14 @@ import { Router } from '@angular/router';
 export class ListComponent implements OnInit {
 
   productList: Product[] = [];
+  showmodal: boolean;
+  productInfo: Product;
 
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.showmodal = false;
     // tslint:disable-next-line: deprecation
     this.productService.listAllProducts().subscribe(
       res => {
@@ -32,21 +36,22 @@ export class ListComponent implements OnInit {
     );
   }
 
-  productEdit(product: Product): void {
-    this.router.navigate([`/update-product/${product.idProduct}`])
+  productEdit(): void {
+    this.router.navigate([`/update-product/${this.productInfo.idProduct}`])
   }
 
-  deleteProduct(product: Product): void {
+  deleteProduct(): void {
     Swal.fire({
-        text: "¿Are you sure to remove the product?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: "Yes, delete",
-        cancelButtonText: "Cancel",
+      title: this.productInfo.productName,
+      text: "¿Are you sure to remove the product?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete",
+      cancelButtonText: "Cancel",
     }).then(
       res => {
-        if(res.value){
-          this.productService.delete(product.idProduct).subscribe();
+        if (res.value) {
+          this.productService.delete(this.productInfo.idProduct).subscribe();
           Swal.fire('Product removed successfully', '', 'info')
         }
         setTimeout(() => {
@@ -54,8 +59,11 @@ export class ListComponent implements OnInit {
         }, 1000);
       }
     )
+  }
 
-
-    
+  showModal(product: Product): void {
+    this.showmodal = true;
+    this.productInfo = product;
+    console.log(product)
   }
 }

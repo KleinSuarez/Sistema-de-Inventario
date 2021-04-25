@@ -5,56 +5,57 @@
       <div class="cell">Product Name</div>
       <div class="cell">Product Type</div>
       <div class="cell">Stock</div>
-      <div class="cell"></div>
+      <div class="cell">Options</div>
     </div>
-    <div class="row" *ngFor="let product of productList" [ngStyle]="{'background-color': (product.stock === 0) ? 'rgba(153, 0, 0, 0.7)' : ''}">
+    <div class="row" *ngFor="let product of productList"
+      [ngStyle]="{'background-color': (product.stock === 0) ? 'rgba(153, 0, 0, 0.7)' : ''}">
       <div class="cell">{{product.reference}}</div>
       <div class="cell">{{product.productName}}</div>
       <div class="cell">{{product.productType.productTypeName}}</div>
       <div class="cell">{{product.stock}}</div>
       <div class="cell">
         <label for="show-modal">
-          <img src="../../../assets/more.svg" class="img-more" alt="more">
-        </label>
-        <input type="radio" name="modal" id="show-modal">
+          <a (click)="showModal(product)">
+            <img src="../../../assets/more.svg" class="img-more" alt="more">
+          </a>
 
-        <!-- Modal Menu -->
-        <div class="modal">
-          <div class="wrapper-in">
-            <h3>Transactions</h3>
-            <div class="section">
-              <div class="transaction">
-                <div class="add">
-                  <label>Add to stock</label>
-                  <input class="input" type="text" placeholder="Add to stock">
-                </div>
-                <div class="out">
-                  <label>Remove from stock</label>
-                  <input class="input" type="text" placeholder="remove from stock">
-                </div>
-              </div>
 
-              <div class="container-button">
-                <div class="button save">
-                  <a href="">save</a>
+          <div class="modal" *ngIf="this.showmodal">
+            <div class="wrapper-in">
+              <h3>Transactions {{productInfo.productName}}</h3>
+              <div class="section">
+                <div class="transaction">
+                  <div class="add">
+                    <label>Add stock</label>
+                    <input class="input" type="text" placeholder="0">
+                  </div>
+                  <div class="out">
+                    <label>Remove stock</label>
+                    <input class="input" type="text" placeholder="0">
+                  </div>
+                </div>
+
+                <div class="container-button">
+                  <div class="button save">
+                    <a href="">save</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <h3>Advanced Options</h3>
-            <div class="advanced-options">
-              <div class="button update">
-                <a (click)="productEdit(product)">edit</a>
-              </div>
-              <div class="button delete">
-                <a (click)="deleteProduct(product)" >delete</a>
-              </div>
-              <div class="button closed">
-                <a href="/list-products">close</a>
+              <h3>Advanced Options</h3>
+              <div class="advanced-options">
+                <div class="button update">
+                  <a (click)="productEdit()">edit</a>
+                </div>
+                <div class="button delete">
+                  <a (click)="deleteProduct()">delete</a>
+                </div>
+                <div class="button closed">
+                  <a href='/list-products'>close</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
+        </label>
       </div>
     </div>
   </div>

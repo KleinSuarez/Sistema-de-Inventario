@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   getProductByReference(reference: string): Observable<Product> {
-    return this.http.get<Product>(this.baseEndPoint.concat('product-by-reference/' + reference));
+    return this.http.get<Product>(this.baseEndPoint.concat('/product-by-reference/' + reference));
   }
 
   getProductById(idProduct: number): Observable<Product> {
@@ -31,5 +31,10 @@ export class ProductService {
 
   delete(idProduct: number): Observable<Product> {
     return this.http.delete<Product>(this.baseEndPoint.concat(`/product/${idProduct}/deleted`));
+  }
+
+  update(commandProduct: ProductCommand): Observable<Product> {
+    console.log(commandProduct)
+    return this.http.post<Product>(this.baseEndPoint.concat('/product/'+commandProduct.idProduct+'/update'), commandProduct, { headers: { 'content-type': 'application/json' } });
   }
 }

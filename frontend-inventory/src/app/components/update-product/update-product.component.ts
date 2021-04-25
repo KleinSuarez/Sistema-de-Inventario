@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class UpdateProductComponent implements OnInit {
 
-
+  
   constructor() {
 
   }

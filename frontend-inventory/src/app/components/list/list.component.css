@@ -73,13 +73,13 @@
   cursor: pointer;
 }
 
-#show-modal {
+/* #show-modal {
   visibility: hidden;
-}
+} */
 
-#show-modal:checked ~ .modal {
+/* #show-modal:checked ~ .modal {
   visibility: visible;
-}
+} */
 
 .modal {
   width: 60%;
@@ -87,7 +87,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  visibility: hidden;
   z-index: 7;
   position: absolute;
   top: 30%;
