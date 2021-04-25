@@ -9,13 +9,13 @@ import co.software.apiinventory.model.Transaction;
 import co.software.apiinventory.service.transaction.consultation.TransactionConsultationService;
 
 @RestController
-@RequestMapping(value = "/v1/inventory/transations")
+@RequestMapping(value = "/history")
 public class ControllerConsultationTransation {
 
 	@Autowired
 	private TransactionConsultationService consultationService;
 
-	@GetMapping("products")
+	@GetMapping
 	Iterable<Transaction> listAllTransactions() {
 		
 		return consultationService.listAllTransactions();
