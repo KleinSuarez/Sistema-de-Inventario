@@ -1,5 +1,7 @@
 package co.software.apiinventory.service.product.modification.impl;
 
+import co.software.apiinventory.command.dto.product.ProductDTO;
+import co.software.apiinventory.command.handler.product.insert.ProductInsertHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +15,14 @@ public class InventoryModificationServiceImpl implements InventoryModificationSe
 
 	@Autowired
 	private ProductRepository productRepository;
+
+	@Autowired
+	private ProductInsertHandler productInsertHandler;
 	
 	@Override
-	public void update(Integer idProduct, Product product) {
+	public void update(Integer idProduct, ProductDTO productDTO) {
 		if (productRepository.existsById(idProduct)) {
-			product.setIdProduct(idProduct);
+			productDTO.setIdProduct(idProduct);
 			Product productTemp = null;
 			for (Product productIterable : productRepository.findAll()) {
 				if(productIterable.getIdProduct() == idProduct) {
@@ -26,7 +31,8 @@ public class InventoryModificationServiceImpl implements InventoryModificationSe
 				}
 			}
 
-			
+			productInsertHandler.execute(productDTO);
+/*
 			String reference = (product.getReference() == null)? productTemp.getReference(): product.getReference();
 			String productName = (product.getProductName() == null)? productTemp.getProductName(): product.getProductName();
 			int amount = (product.getStock()==0)? productTemp.getStock(): product.getStock();
@@ -37,10 +43,10 @@ public class InventoryModificationServiceImpl implements InventoryModificationSe
 			product.setReference(reference);
 			product.setProductName(productName);
 			product.setStock(amount);
-			productRepository.save(product);
+			productRepository.save(product);*/
 			
 		}else {
-			productRepository.save(product);
+			//productRepository.save(product);
 		}
 		
 	}

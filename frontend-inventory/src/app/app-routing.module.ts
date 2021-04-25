@@ -12,10 +12,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'list-products', component: ListComponent},
-  { path: 'update-product', component: UpdateProductComponent},
+  { path: 'update-product/:idProduct', component: UpdateProductComponent},
   { path: 'add-product', component: AddProductComponent},
   { path: 'list-product-type', component: ListProductTypeComponent},
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  
 ];
 
 @NgModule({

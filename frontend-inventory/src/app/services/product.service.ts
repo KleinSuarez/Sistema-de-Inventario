@@ -8,7 +8,7 @@ import { Product } from '../model/product/product';
   providedIn: 'root'
 })
 export class ProductService {
-
+  baseEndPoint = 'http://127.0.0.1:8081/v1/inventory';
   endPoint = 'http://127.0.0.1:8081/v1/inventory/products';
   endPoint2 = 'http://127.0.0.1:8081/v1/inventory/product/insert';
   constructor(private http: HttpClient) { }
@@ -17,7 +17,24 @@ export class ProductService {
     return this.http.get<Product[]>(this.endPoint);
   }
 
+  getProductByReference(reference: string): Observable<Product> {
+    return this.http.get<Product>(this.baseEndPoint.concat('/product-by-reference/' + reference));
+  }
+
+  getProductById(idProduct: number): Observable<Product> {
+    return this.http.get<Product>(this.baseEndPoint.concat('/product-by-id/' + idProduct));
+  }
+
   insert(commandProduct: ProductCommand): Observable<Product> {
     return this.http.post<Product>(this.endPoint2, commandProduct, { headers: { 'content-type': 'application/json' } });
+  }
+
+  delete(idProduct: number): Observable<Product> {
+    return this.http.delete<Product>(this.baseEndPoint.concat(`/product/${idProduct}/deleted`));
+  }
+
+  update(commandProduct: ProductCommand): Observable<Product> {
+    console.log(commandProduct)
+    return this.http.post<Product>(this.baseEndPoint.concat('/product/'+commandProduct.idProduct+'/update'), commandProduct, { headers: { 'content-type': 'application/json' } });
   }
 }
