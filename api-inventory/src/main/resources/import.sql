@@ -10,3 +10,14 @@ INSERT INTO product (id_product,reference, product_name, id_product_type, stock)
 INSERT INTO product (id_product,reference, product_name, id_product_type, stock) VALUES (2, 'REF-002', 'Alcohol', 4, 100)
 INSERT INTO product (id_product,reference, product_name, id_product_type, stock) VALUES (3, 'REF-003', 'Libro', 1, 200)
 
+INSERT INTO roles (id_role, role_name) values (1,'ROLE_ADMIN')
+INSERT INTO roles (id_role, role_name) values (2,'ROLE_CONSULTATION')
+
+INSERT INTO users (id_user, user_name, password, enabled) VALUES (1, 'admin','$2y$12$ZbdrnGIjSbA8G9YIjxl8k.uM0F4tSB3GzUqdNBQ7LXsXvc8mdIIU.',true)
+INSERT INTO users (id_user, user_name, password, enabled) VALUES (2,'anonimus','$2y$12$zKMmiurB4d2av.dtg9sts.5eipBHdagWPyGpBhYOzi3Bqgpf8yIV.', true)
+
+INSERT INTO users_authorities (id_user, id_rol ) values (1,1)
+INSERT INTO users_authorities (id_user, id_rol ) values (2,2)
+
+
+
