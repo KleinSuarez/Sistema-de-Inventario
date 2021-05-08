@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './components/list/list.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
-import { AboutComponent } from './components/about/about.component';
+import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'update-product/:idProduct', component: UpdateProductComponent},
   { path: 'add-product', component: AddProductComponent},
   { path: 'list-product-type', component: ListProductTypeComponent},
-  { path: 'about', component: AboutComponent },
+  { path: 'transaction-history', component: TransactionHistoryComponent},
   
 ];
 

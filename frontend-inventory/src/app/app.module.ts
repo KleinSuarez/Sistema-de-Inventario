@@ -11,9 +11,9 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ListProductTypeComponent } from './components/list-product-type/list-product-type.component';
-import { AboutComponent } from './components/about/about.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
+import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { FormsModule } from '@angular/forms';
     UpdateProductComponent,
     AddProductComponent,
     ListProductTypeComponent,
-    AboutComponent,
     NavBarComponent,
+    TransactionHistoryComponent,
   ],
   imports: [
     BrowserModule,
