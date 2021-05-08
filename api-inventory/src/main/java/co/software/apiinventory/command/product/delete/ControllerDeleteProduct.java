@@ -4,6 +4,8 @@ import co.software.apiinventory.domain.ExistenceValidator;
 import co.software.apiinventory.domain.message.Message;
 import co.software.apiinventory.service.product.consultation.ProductConsultationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +17,6 @@ import co.software.apiinventory.service.product.delete.InventoryDeleteService;
 
 @RestController
 @RequestMapping(value = "/v1/inventory/")
-@CrossOrigin(origins = "*", methods = {RequestMethod.DELETE})
 public class ControllerDeleteProduct {
 
 	@Autowired
@@ -24,6 +25,7 @@ public class ControllerDeleteProduct {
 	@Autowired
 	private InventoryDeleteService inventoryDeleteService;
 
+	@Secured({"ROLE_ADMIN"})
 	@DeleteMapping("product/{idProduct}/deleted")
 	public void deletedProduct(@PathVariable("idProduct") Integer idProduct) {
 		ExistenceValidator.existenceIdProduct(productConsultationService.findById(idProduct), Message.PRODUCT_DONT_EXIST);
