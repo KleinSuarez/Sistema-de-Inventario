@@ -1,12 +1,11 @@
-import { ProductService } from './../../services/product.service';
-import { ProductTypeService } from './../../services/product-type.service';
+import { ProductService } from '../../services/product/product.service';
+import { ProductTypeService } from '../../services/product-type/product-type.service';
 import { ProductType } from './../../model/product_type/product-type';
 import { Component, OnInit } from '@angular/core';
 import { ProductCommand } from 'src/app/command/product-command';
 import { Product } from 'src/app/model/product/product';
 import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-product-form',
@@ -31,6 +30,9 @@ export class ProductFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('user') == null){
+      this.router.navigate(['/login'])
+    }
     // tslint:disable-next-line: deprecation
     this.productTypeServices.listProductType().subscribe(
       res => {
@@ -50,7 +52,6 @@ export class ProductFormComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       this.setupCommand();
-      console.log(this.commandProduct)
       if (result.isConfirmed) {
         if (this.commandProduct.idProduct !== 0 && this.commandProduct.idProduct !== undefined) {
           this.updateProduct();
@@ -67,7 +68,6 @@ export class ProductFormComponent implements OnInit {
     this.productService.getProductByReference(this.commandProduct.reference).subscribe(
       res => {
         this.productTemp = res
-        console.log(this.productTemp.reference)
         if (this.productTemp.reference !== null || this.productTemp.reference === undefined) {
           Swal.fire('product reference already exists', '', 'info');
         } else {
@@ -96,7 +96,6 @@ export class ProductFormComponent implements OnInit {
     this.commandProduct.productName = this.product.productName;
     this.commandProduct.stock = this.product.stock;
     this.commandProduct.idProductType = this.product.productType.idProductType;
-    console.log(this.commandProduct)
   }
 
   productByID(): void {
@@ -115,7 +114,6 @@ export class ProductFormComponent implements OnInit {
         this.router.navigate(['/list-products']);
       }
     )
-    console.log(this.commandProduct)
   }
 
   selectTypeProduct(productType: ProductType, productType2: ProductType): boolean {

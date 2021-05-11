@@ -1,16 +1,17 @@
-<header>
+<header *ngIf="isAuthenticated()">
   <div class="breadcrumb">
     <div class="breadcrumb-list"><a [routerLink]="['home']">Home</a></div>
     <div class="breadcrumb-list"><a [routerLink]="['list-products']">List</a></div>
-    <div class="breadcrumb-list"><a [routerLink]="['update-product']">Update</a></div>
     <div class="breadcrumb-list"><a [routerLink]="['add-product']">Add Product</a></div>
   </div>
-  <div class="options">
-    <div class="admin-options">
-      admin &#x25BE;
+  <div class="options" *ngIf="this.navServices.userloged.username !== ''">
+    <div class="admin-options" >
+      {{this.navServices.userloged.username}} 
     </div>
     <div class="logout">
-      <img src="../../../assets/logout.svg" alt="exit">
+      <a (click)="logout()">
+        <img src="../../../assets/logout.svg" alt="exit">
+      </a>
     </div>
   </div>
 </header>

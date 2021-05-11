@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="wrapper">
+		<div class="info">
+			<h3>Inventory System</h3>
+			<h4>Login</h4>
+		</div>
+		<div class="form">
+			<form id="loginForm">
+				<div class="input-field">
+					<input [(ngModel)]="user.username"  name="username" placeholder="User Name" type="text"  id="user-name" autofocus required>
+					<label for="user-name">User Name:</label>
+				</div>
+				<div class="input-field">
+					<input [(ngModel)]="user.password" name="password" placeholder="Password" type="password"  id="user-password" autofocus required>
+					<label for="user-password">Password:</label>
+				</div>
+				<div class="content-button">
+					<div class="button">
+						<button (click)="login()" type="submit" type="reset">login</button>
+					 </div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

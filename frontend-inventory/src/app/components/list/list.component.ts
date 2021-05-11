@@ -1,4 +1,4 @@
-import { ProductService } from './../../services/product.service';
+import { ProductService } from '../../services/product/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product/product';
 import Swal from 'sweetalert2';
@@ -18,7 +18,10 @@ export class ListComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
-
+    if(sessionStorage.getItem('user') == null){
+      this.router.navigate(['/login'])
+    }
+    
     this.showmodal = false;
     // tslint:disable-next-line: deprecation
     this.productService.listAllProducts().subscribe(
@@ -64,6 +67,5 @@ export class ListComponent implements OnInit {
   showModal(product: Product): void {
     this.showmodal = true;
     this.productInfo = product;
-    console.log(product)
   }
 }

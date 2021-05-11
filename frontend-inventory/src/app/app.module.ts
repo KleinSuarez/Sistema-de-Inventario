@@ -14,6 +14,7 @@ import { ListProductTypeComponent } from './components/list-product-type/list-pr
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
 import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TransactionHistoryComponent } from './components/transaction-history/tr
     ListProductTypeComponent,
     NavBarComponent,
     TransactionHistoryComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

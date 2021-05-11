@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Product } from 'src/app/model/product/product';
-import { ProductTypeService } from 'src/app/services/product-type.service';
-import { ProductService } from 'src/app/services/product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-product',
@@ -12,11 +9,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class UpdateProductComponent implements OnInit {
 
   
-  constructor() {
+  constructor(private router: Router) {
 
   }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('user') == null){
+      this.router.navigate(['/login'])
+    }
   }
 
 }
