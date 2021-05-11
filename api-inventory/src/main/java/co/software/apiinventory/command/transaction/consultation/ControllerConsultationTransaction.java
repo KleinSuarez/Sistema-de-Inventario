@@ -11,7 +11,7 @@ import co.software.apiinventory.service.transaction.consultation.TransactionCons
 
 @RestController
 @RequestMapping(value = "/history")
-public class ControllerConsultationTransation {
+public class ControllerConsultationTransaction {
 
 	@Autowired
 	private TransactionConsultationService consultationService;

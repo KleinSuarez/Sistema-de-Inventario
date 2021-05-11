@@ -1,6 +1,6 @@
 import { Product } from './../product/product';
 export class Transaction {
-  idTransation: number;
+  idTransaction: number;
   inStock: number;
   outStock: number;
   modificationDate: string;

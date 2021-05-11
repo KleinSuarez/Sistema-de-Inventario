@@ -9,16 +9,14 @@
         <div class="cell">Product Name</div>
         <div class="cell">In</div>
         <div class="cell">Out</div>
-        <div class="cell">Stock</div>
         <div class="cell">Modification Date</div>
       </div>
       <div class="row" *ngFor="let transaction of transactionHistoryList" >
-        <div class="cell">{{trasaction.idTransation}}</div>
-        <div class="cell">{{trasaction.product.productName}}</div>
-        <div class="cell">{{trasaction.inStock}}</div>
-        <div class="cell">{{trasaction.outStock}}</div>
-        <div class="cell">{{trasaction.product.stock}}</div>
-        <div class="cell">{{trasaction.modificationDate}}</div>
+        <div class="cell">{{transaction.idTransaction}}</div>
+        <div class="cell">{{transaction.product.productName}}</div>
+        <div class="cell">{{transaction.inStock}}</div>
+        <div class="cell">{{transaction.outStock}}</div>
+        <div class="cell">{{transaction.modificationDate}}</div>
       </div>
     </div>
   </div>

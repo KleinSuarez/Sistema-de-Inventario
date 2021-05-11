@@ -4,13 +4,10 @@ import co.software.apiinventory.command.dto.product.ProductDTO;
 import co.software.apiinventory.command.handler.product.modification.ProductModificationHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -26,5 +23,15 @@ public class ControllerModificationProduct {
 	public void update(@PathVariable("idProduct") Integer idProduct, @RequestBody ProductDTO productDTO) {
 		productDTO.setIdProduct(idProduct);
 		productModificationHandler.execute(productDTO);
+	}
+
+	@Secured({"ROLE_ADMIN"})
+	@PostMapping("product/{idProduct}/update-stock/{instock}/{outstock}/")
+	public void updateStock(@PathVariable("idProduct") Integer idProduct,
+							@PathVariable("instock") Integer instock,
+							@PathVariable("outstock") Integer outstock,
+							@RequestBody ProductDTO productDTO) {
+		productDTO.setIdProduct(idProduct);
+		productModificationHandler.execute(productDTO, instock, outstock);
 	}
 }

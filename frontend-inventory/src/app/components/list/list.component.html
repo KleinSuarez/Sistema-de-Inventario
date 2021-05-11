@@ -23,24 +23,27 @@
           <div class="modal" *ngIf="this.showmodal">
             <div class="wrapper-in">
               <h3>Transactions {{productInfo.productName}}</h3>
-              <div class="section">
-                <div class="transaction">
-                  <div class="add">
-                    <label>Add stock</label>
-                    <input class="input" type="text" placeholder="0">
-                  </div>
-                  <div class="out">
-                    <label>Remove stock</label>
-                    <input class="input" type="text" placeholder="0">
-                  </div>
-                </div>
 
-                <div class="container-button">
-                  <div class="button save">
-                    <a href="">save</a>
+              <form #stock="ngForm" (ngSubmit)='productUpdateStock(stock)' class="form">
+                <div class="section">
+                  <div class="transaction">
+                    <div class="add">
+                      <label>Add stock: {{stock.instock}}</label>
+                      <input #productName="ngModel" [(ngModel)]='stock.instock' value="0" name="instock" class="input" type="text" placeholder="0">
+                    </div>
+                    <div class="out">
+                      <label>Remove stock: {{stock.outstock}}</label>
+                      <input #productName="ngModel" [(ngModel)]='stock.outstock' value="0" name="outstock" class="input" type="text" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="container-button">
+                    <div class="button save">
+                      <button type="submit" >save</button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </form>
+
               <h3>Advanced Options</h3>
               <div class="advanced-options">
                 <div class="button update">

@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(JSON.parse(sessionStorage.getItem('user')))
     if(sessionStorage.getItem('user') == null){
       this.router.navigate(['/login'])
     }

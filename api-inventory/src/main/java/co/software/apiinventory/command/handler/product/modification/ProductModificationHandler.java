@@ -21,4 +21,8 @@ public class ProductModificationHandler implements HandlerCommandResponse<Produc
     public CommandResponse<Integer> execute(ProductDTO productDTO) {
         return new CommandResponse<Integer>(productModificationService.update(productDTO.getIdProduct(), productConverter.update(productDTO)));
     }
+
+    public CommandResponse<Integer> execute (ProductDTO productDTO, Integer instock, Integer outstock){
+        return new CommandResponse<Integer>(productModificationService.updateStock(productDTO.getIdProduct(), productConverter.update(productDTO), instock, outstock));
+    }
 }

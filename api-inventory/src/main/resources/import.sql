@@ -10,6 +10,10 @@ INSERT INTO product (id_product,reference, product_name, id_product_type, stock)
 INSERT INTO product (id_product,reference, product_name, id_product_type, stock) VALUES (2, 'REF-002', 'Alcohol', 4, 100)
 INSERT INTO product (id_product,reference, product_name, id_product_type, stock) VALUES (3, 'REF-003', 'Libro', 1, 200)
 
+INSERT INTO transaction_product(id_transaction, id_product, in_stock, out_stock, modification_date) VALUES (1, 1, 55, 0, '2021-05-12')
+INSERT INTO transaction_product(id_transaction, id_product, in_stock, out_stock, modification_date) VALUES (2, 2, 100, 0, '2019-03-02')
+INSERT INTO transaction_product(id_transaction, id_product, in_stock, out_stock, modification_date) VALUES (3, 3, 200, 0, '2021-05-10')
+
 INSERT INTO roles (id_role, role_name) values (1,'ROLE_ADMIN')
 INSERT INTO roles (id_role, role_name) values (2,'ROLE_CONSULTATION')
 

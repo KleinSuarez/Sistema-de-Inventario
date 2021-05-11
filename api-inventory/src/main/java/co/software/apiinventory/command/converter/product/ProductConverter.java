@@ -6,7 +6,9 @@ import co.software.apiinventory.domain.ExistenceValidator;
 import co.software.apiinventory.domain.message.Message;
 import co.software.apiinventory.model.Product;
 import co.software.apiinventory.model.ProductType;
+import co.software.apiinventory.model.Transaction;
 import co.software.apiinventory.repository.product.ProductRepository;
+import co.software.apiinventory.repository.transaction.TransactionRepository;
 import co.software.apiinventory.service.product.consultation.ProductConsultationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,6 +24,7 @@ public class ProductConverter {
     @Autowired
     private ProductConsultationService productConsultationService;
 
+
     public Product insert(ProductDTO productDTO){
         Product product = new Product();
 
@@ -33,6 +36,8 @@ public class ProductConverter {
         product.setReference(productDTO.getReference());
         product.setStock(productDTO.getStock());
         product.setProductType(new ProductType(productDTO.getIdProductType(), productDTO.getProductTypeName()));
+
+
         return product;
     }
 

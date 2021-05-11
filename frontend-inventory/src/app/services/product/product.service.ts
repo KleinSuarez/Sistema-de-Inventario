@@ -37,4 +37,8 @@ export class ProductService {
   update(commandProduct: ProductCommand): Observable<Product> {
     return this.http.post<Product>(this.endPoint.concat('product/' + commandProduct.idProduct + '/update'), commandProduct, { headers: this.connectionParameters.getJsonHeader()});
   }
+
+  updateStock(commandProduct: ProductCommand, instock: number, outstock: number): Observable<Product> {
+    return this.http.post<Product>(this.endPoint.concat('product/' + commandProduct.idProduct + `/update-stock/${instock}/${outstock}/`), commandProduct,{ headers: this.connectionParameters.getJsonHeader()});
+  }
 }
