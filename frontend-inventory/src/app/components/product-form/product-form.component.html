@@ -34,7 +34,7 @@
       <div *ngIf="stock?.errors.required">The reference fill is mandatory</div>
       <div *ngIf="stock?.errors.minlength">min length 1</div>
     </div>
-    <input placeholder="000" type="text" name="stock" id="stock" [(ngModel)]='product.stock' #stock="ngModel" required
+    <input placeholder="000" type="number" name="stock" id="stock" [(ngModel)]='product.stock' #stock="ngModel" required
       minlength=1 autocomplete="off">
     <label for="stock">Stock:</label>
   </div>

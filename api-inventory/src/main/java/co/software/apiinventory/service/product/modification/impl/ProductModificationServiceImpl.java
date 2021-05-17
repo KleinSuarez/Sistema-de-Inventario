@@ -1,5 +1,7 @@
 package co.software.apiinventory.service.product.modification.impl;
 
+import co.software.apiinventory.domain.ProductStockValidator;
+import co.software.apiinventory.domain.message.Message;
 import co.software.apiinventory.model.Product;
 import co.software.apiinventory.model.Transaction;
 import co.software.apiinventory.repository.product.ProductRepository;
@@ -33,6 +35,7 @@ public class ProductModificationServiceImpl implements ProductModificationServic
 
     @Override
     public Integer updateStock(Integer idProduct, Product product, Integer in, Integer out) {
+        ProductStockValidator.productStockValidator(product.getStock()+in-out, Message.PRODUCT_INSUFFICIENT_STOCK);
         productRepository.save(product);
         transactionRepository.save(new Transaction(
                 product,
