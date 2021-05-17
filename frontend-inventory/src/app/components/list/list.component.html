@@ -7,59 +7,64 @@
       <div class="cell">Stock</div>
       <div class="cell">Options</div>
     </div>
-    <div class="row" *ngFor="let product of productList"
+    <ng-container *ngFor="let product of productList">
+      <div class="row" 
+      *ngIf="product.active"
       [ngStyle]="{'background-color': (product.stock === 0) ? 'rgba(153, 0, 0, 0.7)' : ''}">
-      <div class="cell">{{product.reference}}</div>
-      <div class="cell">{{product.productName}}</div>
-      <div class="cell">{{product.productType.productTypeName}}</div>
-      <div class="cell">{{product.stock}}</div>
-      <div class="cell">
-        <label for="show-modal">
-          <a (click)="showModal(product)">
-            <img src="../../../assets/more.svg" class="img-more" alt="more">
-          </a>
+        <div class="cell">{{product.reference}}</div>
+        <div class="cell">{{product.productName}}</div>
+        <div class="cell">{{product.productType.productTypeName}}</div>
+        <div class="cell">{{product.stock}}</div>
+        <div class="cell">
+          <label for="show-modal">
+            <a (click)="showModal(product)">
+              <img src="../../../assets/more.svg" class="img-more" alt="more">
+            </a>
 
 
-          <div class="modal" *ngIf="this.showmodal">
-            <div class="wrapper-in">
-              <h3>Transactions {{productInfo.productName}}</h3>
+            <div class="modal" *ngIf="this.showmodal">
+              <div class="wrapper-in">
+                <h3>Transactions {{productInfo.productName}}</h3>
 
-              <form #stock="ngForm" (ngSubmit)='productUpdateStock(stock)' class="form">
-                <div class="section">
-                  <div class="transaction">
-                    <div class="add">
-                      <label>Add stock: {{stock.instock}}</label>
-                      <input #productName="ngModel" [(ngModel)]='stock.instock' value="0" name="instock" class="input" type="number" placeholder="0">
+                <form #stock="ngForm" (ngSubmit)='productUpdateStock(stock)' class="form">
+                  <div class="section">
+                    <div class="transaction">
+                      <div class="add">
+                        <label>Add stock: {{stock.instock}}</label>
+                        <input #productName="ngModel" [(ngModel)]='stock.instock' value="0" name="instock" class="input"
+                          type="number" placeholder="0">
+                      </div>
+                      <div class="out">
+                        <label>Remove stock: {{stock.outstock}}</label>
+                        <input #productName="ngModel" [(ngModel)]='stock.outstock' value="0" name="outstock"
+                          class="input" type="number" placeholder="0">
+                      </div>
                     </div>
-                    <div class="out">
-                      <label>Remove stock: {{stock.outstock}}</label>
-                      <input #productName="ngModel" [(ngModel)]='stock.outstock' value="0" name="outstock" class="input" type="number" placeholder="0">
+                    <div class="container-button">
+                      <div class="button save">
+                        <button type="submit">save</button>
+                      </div>
                     </div>
                   </div>
-                  <div class="container-button">
-                    <div class="button save">
-                      <button type="submit" >save</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+                </form>
 
-              <h3>Advanced Options</h3>
-              <div class="advanced-options">
-                <div class="button update">
-                  <a (click)="productEdit()">edit</a>
-                </div>
-                <div class="button delete">
-                  <a (click)="deleteProduct()">delete</a>
-                </div>
-                <div class="button closed">
-                  <a href='/list-products'>close</a>
+                <h3>Advanced Options</h3>
+                <div class="advanced-options">
+                  <div class="button update">
+                    <a (click)="productEdit()">edit</a>
+                  </div>
+                  <div class="button delete">
+                    <a (click)="deleteProduct()">delete</a>
+                  </div>
+                  <div class="button closed">
+                    <a href='/list-products'>close</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </label>
+          </label>
+        </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>

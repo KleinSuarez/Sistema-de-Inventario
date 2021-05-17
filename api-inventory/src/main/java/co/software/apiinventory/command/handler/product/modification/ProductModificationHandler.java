@@ -4,6 +4,7 @@ import co.software.apiinventory.aplication.CommandResponse;
 import co.software.apiinventory.aplication.handle.HandlerCommandResponse;
 import co.software.apiinventory.command.converter.product.ProductConverter;
 import co.software.apiinventory.command.dto.product.ProductDTO;
+import co.software.apiinventory.service.product.delete.ProductDeleteService;
 import co.software.apiinventory.service.product.modification.ProductModificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,12 +18,14 @@ public class ProductModificationHandler implements HandlerCommandResponse<Produc
     @Autowired
     private ProductModificationService productModificationService;
 
+
     @Override
     public CommandResponse<Integer> execute(ProductDTO productDTO) {
         return new CommandResponse<Integer>(productModificationService.update(productDTO.getIdProduct(), productConverter.update(productDTO)));
     }
 
     public CommandResponse<Integer> execute (ProductDTO productDTO, Integer instock, Integer outstock){
-        return new CommandResponse<Integer>(productModificationService.updateStock(productDTO.getIdProduct(), productConverter.update(productDTO), instock, outstock));
+        return new CommandResponse<Integer>(productModificationService.updateStock(productDTO.getIdProduct(), productConverter.update(productDTO, instock, outstock), instock, outstock));
     }
+
 }

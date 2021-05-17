@@ -30,8 +30,8 @@ export class ProductService {
     return this.http.post<Product>(this.endPoint.concat('product/insert'), commandProduct, { headers: this.connectionParameters.getJsonHeader()});
   }
 
-  delete(idProduct: number): Observable<Product> {
-    return this.http.delete<Product>(this.endPoint.concat(`product/${idProduct}/deleted`), { headers: this.connectionParameters.getSimpleHeader()});
+  delete(commandProduct: ProductCommand): Observable<Product> {
+    return this.http.post<Product>(this.endPoint.concat(`product/${commandProduct.idProduct}/deleted`), commandProduct,{ headers: this.connectionParameters.getSimpleHeader()});
   }
 
   update(commandProduct: ProductCommand): Observable<Product> {

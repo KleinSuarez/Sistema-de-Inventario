@@ -35,7 +35,6 @@ public class ProductModificationServiceImpl implements ProductModificationServic
 
     @Override
     public Integer updateStock(Integer idProduct, Product product, Integer in, Integer out) {
-        ProductStockValidator.productStockValidator(product.getStock()+in-out, Message.PRODUCT_INSUFFICIENT_STOCK);
         productRepository.save(product);
         transactionRepository.save(new Transaction(
                 product,

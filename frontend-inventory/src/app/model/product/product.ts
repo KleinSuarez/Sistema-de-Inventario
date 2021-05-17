@@ -5,4 +5,5 @@ export class Product {
   productName: string;
   stock: number;
   productType: ProductType;
+  active: boolean;
 }

@@ -3,13 +3,12 @@ package co.software.apiinventory.command.converter.product;
 import co.software.apiinventory.command.dto.product.ProductDTO;
 import co.software.apiinventory.domain.ArgumentsValidator;
 import co.software.apiinventory.domain.ExistenceValidator;
+import co.software.apiinventory.domain.ProductStockValidator;
 import co.software.apiinventory.domain.message.Message;
 import co.software.apiinventory.model.Product;
 import co.software.apiinventory.model.ProductType;
-import co.software.apiinventory.model.Transaction;
-import co.software.apiinventory.repository.product.ProductRepository;
-import co.software.apiinventory.repository.transaction.TransactionRepository;
 import co.software.apiinventory.service.product.consultation.ProductConsultationService;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +34,7 @@ public class ProductConverter {
         product.setProductName(productDTO.getProductName());
         product.setReference(productDTO.getReference());
         product.setStock(productDTO.getStock());
+        product.setActive(true);
         product.setProductType(new ProductType(productDTO.getIdProductType(), productDTO.getProductTypeName()));
 
 
@@ -48,9 +48,24 @@ public class ProductConverter {
         productUpdate.setProductName(productDTO.getProductName());
         productUpdate.setReference(productDTO.getReference());
         productUpdate.setStock(productDTO.getStock());
+        productUpdate.setActive(productDTO.isActive());
         productUpdate.setProductType(new ProductType(productDTO.getIdProductType(), productDTO.getProductTypeName()));
         return productUpdate;
     }
+
+    public Product update(ProductDTO productDTO, Integer in, Integer out) {
+        ExistenceValidator.existenceIdProduct(productConsultationService.findById(productDTO.getIdProduct()), Message.PRODUCT_DONT_EXIST);
+        ProductStockValidator.productStockValidator(productDTO.getStock(), Message.PRODUCT_INSUFFICIENT_STOCK);
+        Product productUpdate = productConsultationService.findById(productDTO.getIdProduct());
+
+        productUpdate.setProductName(productDTO.getProductName());
+        productUpdate.setReference(productDTO.getReference());
+        productUpdate.setStock(productDTO.getStock());
+        productUpdate.setActive(productDTO.isActive());
+        productUpdate.setProductType(new ProductType(productDTO.getIdProductType(), productDTO.getProductTypeName()));
+        return productUpdate;
+    }
+
 
     public void ArgumentsValidations (ProductDTO productDTO){
         ArgumentsValidator.validateMandatory(productDTO.getProductName(), MANDATORY_PRODUCT_NAME);

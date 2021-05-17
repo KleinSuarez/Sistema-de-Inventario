@@ -5,4 +5,5 @@ export class ProductCommand {
   stock: number;
   idProductType: number;
   productTypeName: string;
+  active: boolean;
 }

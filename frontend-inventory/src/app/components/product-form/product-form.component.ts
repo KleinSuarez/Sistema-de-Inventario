@@ -96,6 +96,8 @@ export class ProductFormComponent implements OnInit {
     this.commandProduct.productName = this.product.productName;
     this.commandProduct.stock = this.product.stock;
     this.commandProduct.idProductType = this.product.productType.idProductType;
+    this.commandProduct.active = this.product.active
+    console.log(this.product.active)
   }
 
   productByID(): void {

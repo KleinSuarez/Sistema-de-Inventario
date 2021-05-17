@@ -11,4 +11,5 @@ public class ProductDTO {
     private String productName;
     private String productTypeName;
     private int stock;
+    private boolean active;
 }

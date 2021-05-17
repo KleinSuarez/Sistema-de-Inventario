@@ -23,12 +23,12 @@ export class ListComponent implements OnInit {
     if (sessionStorage.getItem('user') == null) {
       this.router.navigate(['/login'])
     }
-console.log(JSON.parse(sessionStorage.getItem('user')))
     this.showmodal = false;
     // tslint:disable-next-line: deprecation
     this.productService.listAllProducts().subscribe(
       res => {
         this.productList = res;
+        console.log(this.productList)
         if (this.productList.length === 0) {
           Swal.fire({
             icon: 'error',
@@ -80,6 +80,7 @@ console.log(JSON.parse(sessionStorage.getItem('user')))
     this.commandProduct.productName = this.productInfo.productName;
     this.commandProduct.stock = newStock;
     this.commandProduct.idProductType = this.productInfo.productType.idProductType;
+    this.commandProduct.active = this.productInfo.active;
   }
 
   productEdit(): void {
@@ -97,7 +98,8 @@ console.log(JSON.parse(sessionStorage.getItem('user')))
     }).then(
       res => {
         if (res.value) {
-          this.productService.delete(this.productInfo.idProduct).subscribe();
+          this.setupCommand(0)
+          this.productService.delete(this.commandProduct).subscribe();
           Swal.fire('Product removed successfully', '', 'info')
         }
         setTimeout(() => {
