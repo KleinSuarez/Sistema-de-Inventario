@@ -4,7 +4,7 @@
     <div class="breadcrumb-list"><a [routerLink]="['list-products']">List</a></div>
     <div class="breadcrumb-list"><a [routerLink]="['add-product']">Add Product</a></div>
   </div>
-  <div class="options" *ngIf="this.navServices.userloged.username !== ''">
+  <div class="options" *ngIf="this.navServices.userloged.username !== '' || this.navServices.userloged.username !== undefined">
     <div class="admin-options" >
       {{this.navServices.userloged.username}} 
     </div>

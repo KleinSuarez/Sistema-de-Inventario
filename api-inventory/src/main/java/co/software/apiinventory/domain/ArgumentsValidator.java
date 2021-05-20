@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class ArgumentsValidator {
     public static void validateMandatory(Object value, String message) {
-        if (value == null) {
+        if (value == null || value == "") {
             throw new ExceptionRequiredValue(message);
         }
 

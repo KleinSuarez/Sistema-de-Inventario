@@ -31,12 +31,12 @@
                     <div class="transaction">
                       <div class="add">
                         <label>Add stock: {{stock.instock}}</label>
-                        <input #productName="ngModel" [(ngModel)]='stock.instock' value="0" name="instock" class="input"
+                        <input #productName="ngModel" [(ngModel)]='stock.instock' value="0" min="0" name="instock" class="input"
                           type="number" placeholder="0">
                       </div>
                       <div class="out">
                         <label>Remove stock: {{stock.outstock}}</label>
-                        <input #productName="ngModel" [(ngModel)]='stock.outstock' value="0" name="outstock"
+                        <input #productName="ngModel" [(ngModel)]='stock.outstock' value="0" min="0" name="outstock"
                           class="input" type="number" placeholder="0">
                       </div>
                     </div>
