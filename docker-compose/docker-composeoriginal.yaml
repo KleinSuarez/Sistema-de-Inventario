@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  inventory-db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - red-inventory-app
+    environment:
+      MYSQL_DATABASE: products
+      MYSQL_ROOT_PASSWORD: root
+  inventory-api:
+    image: api-inventory
+    ports:
+      - "8083:8083"
+    networks:
+      - red-inventory-app
+    depends_on:
+      - inventory-db
+  inventory-client:
+    image: client-inventory
+    ports:
+      - "4200:80"
+    networks:
+      - red-inventory-app
+networks:
+  red-inventory-app:

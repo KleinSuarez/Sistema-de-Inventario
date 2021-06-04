@@ -66,7 +66,7 @@ export class ListComponent implements OnInit {
             Swal.fire('Updated', '', 'success')
             this.showmodal = false;
 
-            window.location.reload()
+            this.router.navigate(['/home'])
           }
         )
       }
@@ -103,7 +103,7 @@ export class ListComponent implements OnInit {
           Swal.fire('Product removed successfully', '', 'info')
         }
         setTimeout(() => {
-          window.location.reload();
+          this.router.navigate([`/list-products`]);
         }, 1000);
       }
     )
